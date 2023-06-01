@@ -3,9 +3,6 @@ import json
 import discord
 from dotenv import load_dotenv
 
-f = open('chemistryWords.py')
-data = json.load(f)
-
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
