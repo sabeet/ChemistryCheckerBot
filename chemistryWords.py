@@ -1,2 +1,2 @@
-chemistry_words = ["Chemistry", "Distillation", "Surfactant"]
+chemistry_words = ["chemistry", "distillation", "surfactant"]
 
