@@ -1,0 +1,35 @@
+import os
+import json
+import discord
+from dotenv import load_dotenv
+
+f = open('chemistryWords.py')
+data = json.load(f)
+
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
+
+client = discord.Client(intents = discord.Intents.all())
+
+@client.event
+async def on_ready():
+    print('Chemistry Checker is now running')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    chemistry_words = [
+        "chemistry", "distillation", "surfactant"
+    ]
+
+    string = message.content
+    string = string.lower().split(" ")
+
+    for word in string:
+        if word in chemistry_words:
+            await message.channel.send('You just used the chemistry term: ' + word)
+            await message.channel.send('Go back to the lab!')
+
+client.run(TOKEN)
