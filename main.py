@@ -1,5 +1,4 @@
 import os
-import regex as re
 
 from censor_phrase import censor_phrase
 from chemistryWords import chemistry_words
@@ -25,8 +24,8 @@ async def on_message(message):
     for phrase in chemistry_words:
         if phrase.lower() in string:
             censored_text = censor_phrase(phrase, string)
-            await message.channel.send(f"You just used the chemistry phrase: {censored_text}")
-            await message.channel.send('Go back to the lab!')
+            await message.channel.send(f"{censored_text}")
+            await message.channel.send('You just used some chemistry terms. ChemistryChecker thanks you for learning')
             break
 
 client.run(TOKEN)
