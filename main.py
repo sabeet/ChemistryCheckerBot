@@ -25,7 +25,7 @@ async def on_message(message):
         if phrase.lower() in string:
             censored_text = censor_phrase(phrase, string)
             await message.channel.send(f"{censored_text}")
-            await message.channel.send('You just used some chemistry terms. ChemistryChecker thanks you for learning')
+            await message.channel.send('You just used a STEM term. STEMChecker thanks you for learning')
             break
 
 client.run(TOKEN)
